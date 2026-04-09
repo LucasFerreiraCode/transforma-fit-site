@@ -1,3 +1,3 @@
 function comprar() {
-    window.location.href = "https://www.instagram.com/_transformafit21/";
+    window.location.href = "https://pay.kiwify.com.br/kjVtxHj";
 }
