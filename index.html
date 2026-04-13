@@ -14,6 +14,22 @@
 
 <body>
 
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="nav-logo">Transforma<span>Fit</span></a>
+            <div class="nav-menu">
+                <a href="#beneficios">Benefícios</a>
+                <a href="#como-funciona">Como Funciona</a>
+                <a href="#depoimentos">Depoimentos</a>
+                <a href="#oferta" class="btn btn-sm">Quero Começar</a>
+            </div>
+            <button class="nav-toggle" onclick="toggleMenu()">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
     <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
@@ -21,7 +37,7 @@
             <h1>Transforma Fit <span>21 Dias</span></h1>
             <p>Perca até 5kg em 21 dias com um método simples, acessível e sem precisar passar fome. Resultados comprovados por mais de 1.000 pessoas.</p>
             <div class="hero-buttons">
-                <a href="#" class="btn btn-primary" onclick="comprar()">
+                <a href="#oferta" class="btn btn-primary" onclick="comprar()">
                     <span>Começar Agora</span>
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
@@ -34,7 +50,7 @@
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">98%</span>
-                    <span class="stat-label">Satisfaction</span>
+                    <span class="stat-label">Satisfação</span>
                 </div>
                 <div class="stat-item">
                     <span class="stat-number">21 dias</span>
@@ -47,8 +63,8 @@
     <!-- BENEFÍCIOS -->
     <section class="section benefits" id="beneficios">
         <div class="container">
-            <h2 class="section-title">O que você vai conquistar</h2>
-            <p class="section-subtitle">Um método completo desenhado para você alcançar seus objetivos de forma sustentável</p>
+            <h2 class="section-title animate-on-scroll">O que você vai conquistar</h2>
+            <p class="section-subtitle animate-on-scroll delay-1">Um método completo desenhado para você alcançar seus objetivos de forma sustentável</p>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">🔥</div>
@@ -79,6 +95,36 @@
                     <div class="benefit-icon">💪</div>
                     <h3>Motivação Diária</h3>
                     <p>Dicas e estratégias para manter o foco e não desistir no meio do caminho.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section class="section how-it-works" id="como-funciona">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Como Funciona</h2>
+            <p class="section-subtitle animate-on-scroll delay-1">Em apenas 3 passos simples você alcanza seus objetivos</p>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">📋</div>
+                    <h3>Receba o Guia</h3>
+                    <p>Assim que comprar, você recebe acesso imediato ao cardápio completo de 21 dias com todas as instruções.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">🥗</div>
+                    <h3>Siga o Cardápio</h3>
+                    <p>Prepare as receitas do guia usando ingredientes simples do supermercado. Sem complicação, sem frescura.</p>
+                </div>
+                <div class="step-connector"></div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">⚖️</div>
+                    <h3>Veja Resultados</h3>
+                    <p>Em 21 dias você raggija seu objetivo. Mais energia, mais disposição e muito mais confiança.</p>
                 </div>
             </div>
         </div>
@@ -137,18 +183,88 @@
     </section>
 
     <!-- DEPOIMENTOS -->
-    <section class="section testimonials">
+    <section class="section testimonials" id="depoimentos">
         <div class="container">
             <h2 class="section-title">Resultados Reais</h2>
             <p class="section-subtitle">O que nossos clientes dizem sobre o método</p>
-            <div class="testimonial-card">
-                <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-text">"Em 21 dias perdi 4kg sem passar fome. O cardápio é super prático e facilei seguia. Recomendo para todo mundo!"</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">M</div>
-                    <div class="author-info">
-                        <div class="author-name">Marcos Silva</div>
-                        <div class="author-location">São Paulo, SP</div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Em 21 dias perdi 4kg sem passar fome. O cardápio é super prático e fácil de seguir. Recomendo para todo mundo!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <div class="author-name">Marcos Silva</div>
+                            <div class="author-location">São Paulo, SP</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Nunca consegui emagrecer antes, mas com esse método alcancei meu objetivo em menos de um mês. Minha auto estima mudou completamente!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">A</div>
+                        <div class="author-info">
+                            <div class="author-name">Ana Paula</div>
+                            <div class="author-location">Rio de Janeiro, RJ</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Simples e objetivo. Em 2 semanas já sentia diferença. Recomendo para quem quer resultados rápidos sem complicação."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">C</div>
+                        <div class="author-info">
+                            <div class="author-name">Carlos Mendes</div>
+                            <div class="author-location">Belo Horizonte, MG</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section faq">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <p class="section-subtitle">Tire suas dúvidas antes de começar</p>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Preciso fazer academia para emagrecer?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Não é obrigatório! O método funciona através de alimentação orientada. Mas se você quiser potencializar os resultados, pode incluir exercícios leves.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>É preciso comprar alimentos especiais?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Não! Todos os ingredientes são encontrados em qualquer supermercado. O método foi pensado para ser acessível a todos.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Funciona paravegetarianos?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Sim! O cardápio inclui substituições para vegetarians, mantendo todos os nutrientes necessários.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        <span>Em quanto tempo vejo resultados?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>A maioria dos clientes percebe mudanças na primeira semana. Em 21 dias é possível perder até 5kg seguindo o método.</p>
                     </div>
                 </div>
             </div>
@@ -156,10 +272,27 @@
     </section>
 
     <!-- OFERTA -->
-    <section class="section cta">
+    <section class="section cta" id="oferta">
         <div class="cta-content container">
+            <div class="urgency-banner">
+                <span>⏰ Oferta especial: última chance!</span>
+            </div>
             <h2 class="section-title">Comece hoje sua transformação</h2>
             <p class="section-subtitle">Tenha acesso imediato ao método completo e alcance seus objetivos</p>
+            <div class="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-number" id="horas">23</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="minutos">59</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-number" id="segundos">59</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
             <div class="price">
                 <span class="price-old">R$ 80</span>
                 R$ 14<span>,99</span>
@@ -168,8 +301,18 @@
                 <span>Quero emagrecer agora</span>
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
+            <div class="guarantee-seal">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                <span>Garantia de 7 dias - Satisfação ou dinheiro de volta</span>
+            </div>
+            <p class="offer-note">*Oferta válida apenas para os primeiros 100 clientes</p>
         </div>
     </section>
+
+    <!-- BACK TO TOP -->
+    <button class="back-to-top" onclick="scrollToTop()">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
 
     <!-- FOOTER -->
     <footer class="footer">
