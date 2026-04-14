@@ -8,8 +8,39 @@
     <meta name="description" content="Perca até 5kg em 21 dias com um método simples, acessível e comprovado">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <meta property="og:title" content="Transforma Fit 21 Dias - Método Completo">
+    <meta property="og:description" content="Perca até 5kg em 21 dias com um método simples, acessível e comprovado">
+    <meta property="og:image" content="https://transformafit.com.br/og-image.jpg">
+    <meta property="og:url" content="https://transformafit.com.br">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://pay.kiwify.com.br">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Transforma Fit 21 Dias",
+        "description": "Perca até 5kg em 21 dias com um método simples, acessível e comprovado",
+        "brand": {
+            "@type": "Brand",
+            "name": "Transforma Fit"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "14.99",
+            "priceCurrency": "BRL",
+            "availability": "https://schema.org/InStock"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "1000"
+        }
+    }
+    </script>
 </head>
 
 <body>
@@ -18,13 +49,13 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="nav-logo">Transforma<span>Fit</span></a>
-            <div class="nav-menu">
+            <div class="nav-menu" id="nav-menu">
                 <a href="#beneficios">Benefícios</a>
                 <a href="#como-funciona">Como Funciona</a>
                 <a href="#depoimentos">Depoimentos</a>
                 <a href="#oferta" class="btn btn-sm">Quero Começar</a>
             </div>
-            <button class="nav-toggle" onclick="toggleMenu()">
+            <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-menu">
                 <span></span><span></span><span></span>
             </button>
         </div>
@@ -37,7 +68,7 @@
             <h1>Transforma Fit <span>21 Dias</span></h1>
             <p>Perca até 5kg em 21 dias com um método simples, acessível e sem precisar passar fome. Resultados comprovados por mais de 1.000 pessoas.</p>
             <div class="hero-buttons">
-                <a href="#oferta" class="btn btn-primary" onclick="comprar()">
+                <a href="#oferta" class="btn btn-primary" id="btn-comprar-hero">
                     <span>Começar Agora</span>
                     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </a>
@@ -232,36 +263,36 @@
             <p class="section-subtitle">Tire suas dúvidas antes de começar</p>
             <div class="faq-list">
                 <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question" aria-expanded="false">
                         <span>Preciso fazer academia para emagrecer?</span>
-                        <span class="faq-icon">+</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Não é obrigatório! O método funciona através de alimentação orientada. Mas se você quiser potencializar os resultados, pode incluir exercícios leves.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question" aria-expanded="false">
                         <span>É preciso comprar alimentos especiais?</span>
-                        <span class="faq-icon">+</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Não! Todos os ingredientes são encontrados em qualquer supermercado. O método foi pensado para ser acessível a todos.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question" aria-expanded="false">
                         <span>Funciona paravegetarianos?</span>
-                        <span class="faq-icon">+</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>Sim! O cardápio inclui substituições para vegetarians, mantendo todos os nutrientes necessários.</p>
                     </div>
                 </div>
                 <div class="faq-item">
-                    <button class="faq-question" onclick="toggleFaq(this)">
+                    <button class="faq-question" aria-expanded="false">
                         <span>Em quanto tempo vejo resultados?</span>
-                        <span class="faq-icon">+</span>
+                        <span class="faq-icon" aria-hidden="true">+</span>
                     </button>
                     <div class="faq-answer">
                         <p>A maioria dos clientes percebe mudanças na primeira semana. Em 21 dias é possível perder até 5kg seguindo o método.</p>
@@ -297,7 +328,7 @@
                 <span class="price-old">R$ 80</span>
                 R$ 14<span>,99</span>
             </div>
-            <button class="btn btn-primary" onclick="comprar()">
+            <button class="btn btn-primary" id="btn-comprar-cta">
                 <span>Quero emagrecer agora</span>
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
@@ -310,7 +341,7 @@
     </section>
 
     <!-- BACK TO TOP -->
-    <button class="back-to-top" onclick="scrollToTop()">
+    <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
         <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
     </button>
 

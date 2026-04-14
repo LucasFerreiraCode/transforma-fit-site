@@ -1,18 +1,29 @@
-function comprar() {
-    window.location.href = "https://pay.kiwify.com.br/kjVtxHj";
-}
+document.querySelector('.nav-toggle').addEventListener('click', function() {
+    const menu = document.querySelector('.nav-menu');
+    const isExpanded = this.getAttribute('aria-expanded') === 'true';
+    menu.classList.toggle('active');
+    this.setAttribute('aria-expanded', !isExpanded);
+});
 
-function toggleMenu() {
-    document.querySelector('.nav-menu').classList.toggle('active');
-}
+document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', function() {
+        const faqItem = this.parentElement;
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        faqItem.classList.toggle('active');
+        this.setAttribute('aria-expanded', !isExpanded);
+    });
+});
 
-function scrollToTop() {
+document.querySelectorAll('#btn-comprar-hero, #btn-comprar-cta').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.location.href = "https://pay.kiwify.com.br/kjVtxHj";
+    });
+});
+
+document.getElementById('back-to-top').addEventListener('click', function() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function toggleFaq(element) {
-    element.parentElement.classList.toggle('active');
-}
+});
 
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
