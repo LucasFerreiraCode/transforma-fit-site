@@ -28,6 +28,7 @@ document.getElementById('back-to-top').addEventListener('click', function() {
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
     const backToTop = document.querySelector('.back-to-top');
+    const stickyCta = document.getElementById('sticky-cta');
     
     if (window.scrollY > 50) {
         navbar.classList.add('scrolled');
@@ -39,6 +40,14 @@ window.addEventListener('scroll', function() {
         backToTop.classList.add('visible');
     } else {
         backToTop.classList.remove('visible');
+    }
+
+    if (stickyCta) {
+        if (window.scrollY > 400) {
+            stickyCta.classList.add('visible');
+        } else {
+            stickyCta.classList.remove('visible');
+        }
     }
 });
 
@@ -77,3 +86,47 @@ function updateCountdown() {
 
 setInterval(updateCountdown, 1000);
 updateCountdown();
+
+/* EXIT INTENT POPUP LOGIC */
+document.addEventListener('mouseleave', function(e) {
+    if (e.clientY < 10 && !sessionStorage.getItem('exitPopupShown')) {
+        const popup = document.getElementById('exit-popup');
+        if (popup) {
+            popup.classList.add('active');
+            sessionStorage.setItem('exitPopupShown', 'true');
+            startPopupTimer();
+        }
+    }
+});
+
+const closePopupBtn = document.getElementById('close-popup');
+if (closePopupBtn) {
+    closePopupBtn.addEventListener('click', function() {
+        document.getElementById('exit-popup').classList.remove('active');
+    });
+}
+
+const denyPopupBtn = document.getElementById('deny-popup');
+if (denyPopupBtn) {
+    denyPopupBtn.addEventListener('click', function() {
+        document.getElementById('exit-popup').classList.remove('active');
+    });
+}
+
+function startPopupTimer() {
+    let timeLeft = 300; // 5 minutes
+    const timerElement = document.getElementById('popup-timer-countdown');
+    
+    const popupInterval = setInterval(function() {
+        if (timeLeft <= 0) {
+            clearInterval(popupInterval);
+            timerElement.textContent = "00:00";
+            return;
+        }
+        
+        const minutes = Math.floor(timeLeft / 60);
+        const seconds = timeLeft % 60;
+        timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        timeLeft--;
+    }, 1000);
+}
