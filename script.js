@@ -130,3 +130,37 @@ function startPopupTimer() {
         timeLeft--;
     }, 1000);
 }
+
+/* DYNAMIC ROUNDED FAVICON LOGIC */
+window.addEventListener('load', function() {
+    const img = new Image();
+    img.src = 'img/TransformaFit-logo.png';
+    img.crossOrigin = "Anonymous";
+    
+    img.onload = function() {
+        const canvas = document.createElement('canvas');
+        const size = Math.min(img.width, img.height);
+        canvas.width = size;
+        canvas.height = size;
+        
+        const ctx = canvas.getContext('2d');
+        
+        // Criar um círculo perfeito (arredondar com código)
+        ctx.beginPath();
+        ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+        ctx.closePath();
+        ctx.clip();
+        
+        // Desenhar a imagem dentro do círculo
+        const xOffset = (img.width - size) / 2;
+        const yOffset = (img.height - size) / 2;
+        ctx.drawImage(img, xOffset, yOffset, size, size, 0, 0, size, size);
+        
+        // Atualizar o favicon na aba do navegador com a nova imagem gerada pelo código
+        const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+        link.type = 'image/png';
+        link.rel = 'icon';
+        link.href = canvas.toDataURL('image/png');
+        document.getElementsByTagName('head')[0].appendChild(link);
+    };
+});
