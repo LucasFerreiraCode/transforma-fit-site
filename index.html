@@ -47,6 +47,11 @@
 
 <body>
 
+    <!-- READING PROGRESS BAR -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scroll-progress"></div>
+    </div>
+
     <!-- NAVBAR -->
     <nav class="navbar">
         <div class="container nav-container">
@@ -75,7 +80,7 @@
                 <p class="animate-on-scroll delay-2">Perca até 5kg em 21 dias com um método simples, acessível e sem
                     precisar passar fome. Resultados comprovados por mais de 1.000 pessoas.</p>
                 <div class="hero-buttons animate-on-scroll delay-3">
-                    <a href="#oferta" class="btn btn-primary glow-effect" id="btn-comprar-hero">
+                    <a href="#oferta" class="btn btn-primary glow-effect shine-effect" id="btn-comprar-hero">
                         <span>Começar Agora</span>
                         <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
                             viewBox="0 0 24 24">
@@ -237,41 +242,82 @@
         <div class="container">
             <h2 class="section-title animate-on-scroll">Resultados Reais</h2>
             <p class="section-subtitle animate-on-scroll delay-1">O que nossos clientes dizem sobre o método</p>
-            <div class="testimonials-grid">
-                <div class="testimonial-card animate-on-scroll delay-1">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Em apenas 21 dias, já consegui criar hábitos alimentares saudáveis com
-                        a ajuda do e-book e comecei a perceber mudanças reais no meu corpo. Me sinto mais leve,
-                        disciplinada e muito mais motivada para continuar."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">D</div>
-                        <div class="author-info">
-                            <div class="author-name">Daniela Ferreira</div>
-                            <div class="author-location">Peruíbe, SP</div>
+            <div class="testimonials-marquee">
+                <div class="testimonials-track">
+                    <!-- Original set -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Em apenas 21 dias, já consegui criar hábitos alimentares saudáveis com
+                            a ajuda do e-book e comecei a perceber mudanças reais no meu corpo. Me sinto mais leve,
+                            disciplinada e muito mais motivada para continuar."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">D</div>
+                            <div class="author-info">
+                                <div class="author-name">Daniela Ferreira</div>
+                                <div class="author-location">Peruíbe, SP</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card animate-on-scroll delay-2">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Nunca consegui emagrecer antes, mas com esse método alcancei meu
-                        objetivo em menos de um mês. Minha auto estima mudou completamente!"</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">A</div>
-                        <div class="author-info">
-                            <div class="author-name">Ana Paula</div>
-                            <div class="author-location">Rio de Janeiro, RJ</div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Nunca consegui emagrecer antes, mas com esse método alcancei meu
+                            objetivo em menos de um mês. Minha auto estima mudou completamente!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">A</div>
+                            <div class="author-info">
+                                <div class="author-name">Ana Paula</div>
+                                <div class="author-location">Rio de Janeiro, RJ</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="testimonial-card animate-on-scroll delay-3">
-                    <div class="testimonial-stars">★★★★★</div>
-                    <p class="testimonial-text">"Simples e objetivo. Em 2 semanas já sentia diferença. Recomendo para
-                        quem quer resultados rápidos sem complicação."</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">C</div>
-                        <div class="author-info">
-                            <div class="author-name">Carlos Mendes</div>
-                            <div class="author-location">Belo Horizonte, MG</div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Simples e objetivo. Em 2 semanas já sentia diferença. Recomendo para
+                            quem quer resultados rápidos sem complicação."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">C</div>
+                            <div class="author-info">
+                                <div class="author-name">Carlos Mendes</div>
+                                <div class="author-location">Belo Horizonte, MG</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Duplicate set for infinite loop -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Em apenas 21 dias, já consegui criar hábitos alimentares saudáveis com
+                            a ajuda do e-book e comecei a perceber mudanças reais no meu corpo. Me sinto mais leve,
+                            disciplinada e muito mais motivada para continuar."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">D</div>
+                            <div class="author-info">
+                                <div class="author-name">Daniela Ferreira</div>
+                                <div class="author-location">Peruíbe, SP</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Nunca consegui emagrecer antes, mas com esse método alcancei meu
+                            objetivo em menos de um mês. Minha auto estima mudou completamente!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">A</div>
+                            <div class="author-info">
+                                <div class="author-name">Ana Paula</div>
+                                <div class="author-location">Rio de Janeiro, RJ</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars">★★★★★</div>
+                        <p class="testimonial-text">"Simples e objetivo. Em 2 semanas já sentia diferença. Recomendo para
+                            quem quer resultados rápidos sem complicação."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">C</div>
+                            <div class="author-info">
+                                <div class="author-name">Carlos Mendes</div>
+                                <div class="author-location">Belo Horizonte, MG</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -356,7 +402,7 @@
                 <span class="price-old">R$ 80</span>
                 R$ 14<span>,99</span>
             </div>
-            <button class="btn btn-primary glow-effect animate-on-scroll delay-5" id="btn-comprar-cta">
+            <button class="btn btn-primary glow-effect shine-effect animate-on-scroll delay-5" id="btn-comprar-cta">
                 <span>Quero emagrecer agora</span>
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path d="M5 12h14M12 5l7 7-7 7" />
@@ -398,7 +444,7 @@
                 <span class="sticky-title">Transforma Fit 21 Dias</span>
                 <span class="sticky-price">Apenas R$ 14,99</span>
             </div>
-            <a href="#oferta" class="btn btn-primary btn-sm glow-effect" id="btn-comprar-sticky">Comprar Agora</a>
+            <a href="#oferta" class="btn btn-primary btn-sm glow-effect shine-effect" id="btn-comprar-sticky">Comprar Agora</a>
         </div>
     </div>
 
@@ -415,7 +461,7 @@
                 <span>Esta oferta expira em: </span>
                 <span id="popup-timer-countdown" class="neon-text">05:00</span>
             </div>
-            <a href="https://pay.kiwify.com.br/kjVtxHj" class="btn btn-primary glow-effect popup-btn">
+            <a href="https://pay.kiwify.com.br/kjVtxHj" class="btn btn-primary glow-effect shine-effect popup-btn">
                 <span>Quero Meu Bônus e Emagrecer</span>
             </a>
             <button class="popup-deny" id="deny-popup">Não, obrigado. Prefiro continuar como estou.</button>

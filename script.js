@@ -49,6 +49,15 @@ window.addEventListener('scroll', function() {
             stickyCta.classList.remove('visible');
         }
     }
+
+    // Scroll Progress Logic
+    const progressBar = document.getElementById('scroll-progress');
+    if (progressBar) {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + "%";
+    }
 });
 
 const observerOptions = {
