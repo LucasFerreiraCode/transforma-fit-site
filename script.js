@@ -8,9 +8,19 @@ document.querySelector('.nav-toggle').addEventListener('click', function() {
 document.querySelectorAll('.faq-question').forEach(button => {
     button.addEventListener('click', function() {
         const faqItem = this.parentElement;
-        const isExpanded = this.getAttribute('aria-expanded') === 'true';
-        faqItem.classList.toggle('active');
-        this.setAttribute('aria-expanded', !isExpanded);
+        const isActive = faqItem.classList.contains('active');
+        
+        // Close all other items
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.classList.remove('active');
+            item.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        if (!isActive) {
+            faqItem.classList.add('active');
+            const answer = faqItem.querySelector('.faq-answer');
+            answer.style.maxHeight = answer.scrollHeight + "px";
+        }
     });
 });
 
@@ -60,6 +70,18 @@ window.addEventListener('scroll', function() {
     }
 });
 
+/* PRELOADER LOGIC */
+window.addEventListener('load', () => {
+    const tl = gsap.timeline();
+    tl.to('#preloader-bar', { width: '100%', duration: 0.8 })
+      .to('#preloader', { opacity: 0, duration: 0.5, pointerEvents: 'none' })
+      .add(() => {
+          document.getElementById('preloader').style.display = 'none';
+          // Trigger Hero animation after preloader
+          animateHero();
+      });
+});
+
 /* INITIALIZE LENIS SMOOTH SCROLL */
 const lenis = new Lenis({
     duration: 1.2,
@@ -78,21 +100,44 @@ gsap.ticker.lagSmoothing(0);
 /* GSAP ANIMATIONS */
 gsap.registerPlugin(ScrollTrigger);
 
-// Hero Reveal Animation - Ensure it runs immediately
-const heroTimeline = gsap.timeline({
-    defaults: { ease: 'power4.out', duration: 1.2 }
-});
+// Hero Reveal Animation
+function animateHero() {
+    const heroTimeline = gsap.timeline({
+        defaults: { ease: 'power4.out', duration: 1.2 }
+    });
 
-heroTimeline
-    .from('.hero h1', { opacity: 0, y: 60 })
-    .from('.hero p', { opacity: 0, y: 30 }, '-=0.8')
-    .from('.hero-buttons', { opacity: 0, y: 30 }, '-=1')
-    .from('.hero-image-wrapper', { opacity: 0, scale: 0.8, duration: 1.5 }, '-=1.2')
-    .from('.hero-stats .stat-item', { 
-        opacity: 0, 
-        y: 20, 
-        stagger: 0.15 
-    }, '-=1');
+    heroTimeline
+        .from('.hero h1', { opacity: 0, y: 60 })
+        .from('.hero p', { opacity: 0, y: 30 }, '-=0.8')
+        .from('.hero-buttons', { opacity: 0, y: 30 }, '-=1')
+        .from('.hero-image-wrapper', { opacity: 0, scale: 0.8, duration: 1.5 }, '-=1.2')
+        .from('.hero-stats .stat-item', { 
+            opacity: 0, 
+            y: 20, 
+            stagger: 0.15,
+            onComplete: animateCounters 
+        }, '-=1');
+}
+
+// Stats Counter Animation
+function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    counters.forEach(counter => {
+        const target = parseFloat(counter.innerText.replace(/[^0-9.]/g, ''));
+        const suffix = counter.innerText.replace(/[0-9.]/g, '');
+        const isFloat = counter.innerText.includes('.');
+        
+        let obj = { value: 0 };
+        gsap.to(obj, {
+            value: target,
+            duration: 2,
+            ease: 'power2.out',
+            onUpdate: () => {
+                counter.innerText = (isFloat ? obj.value.toLocaleString('pt-BR') : Math.floor(obj.value)) + suffix;
+            }
+        });
+    });
+}
 
 // Global Section Scroll Reveals
 document.querySelectorAll('.animate-on-scroll').forEach(el => {
